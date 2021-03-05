@@ -1,0 +1,128 @@
+{"model_name":"Proveedor",
+    "soft_deletes":"yes",
+    "pk":"id",
+    "localize":"yes",
+    "table":"proveedors",
+    "fields":[
+        {
+
+            "name": "nombreCompania",
+            "type": "string"
+        },
+        {
+            "name": "nombreContacto",
+            "type": "string"
+
+        },
+        {
+            "name": "cargoContacto",
+            "type": "string"
+
+        },
+        {
+            "name": "paginaWeb",
+            "type": "string"
+
+        },
+        {
+            "name": "email",
+            "type": "email"
+
+        },
+        {
+            "name": "direccion",
+            "type": "string"
+
+        },
+        {
+            "name": "pais",
+            "type": "string"
+
+        },
+        {
+            "name": "entidadFederativa",
+            "type": "string"
+
+        },
+        {
+            "name": "ciudad",
+            "type": "string"
+
+        },
+        {
+            "name": "codigoPostal",
+            "type": "string"
+
+        },
+        {
+            "name": "telefono",
+            "type": "string"
+
+        }
+    ],
+    
+   
+    "foreign_keys": [
+        
+       
+      
+
+    ],
+    "relationships": [
+       
+      
+       {
+        "type": "hasMany",
+        "name": "producto",
+        "class": "App\\Models\\Producto"
+    }
+       
+   ],
+    "validations": [
+        {
+            "field": "nombreCompania",
+            "rules": "required|min:2"
+        },
+        {
+            "field": "nombreContacto",
+            "rules": "required|min:2"
+        },
+        {
+            "field": "cargoContacto",
+            "rules": "required|min:2"
+        },
+        {
+            "field": "paginaWeb",
+            "rules": "required|min:2"
+        },
+        {
+            "field": "email",
+            "rules": "required|min:2"
+        },
+        {
+            "field": "direccion",
+            "rules": "required|min:2"
+        },
+        {
+            "field": "telefono",
+            "rules": "required|min:10"
+        },
+         {
+            "field": "pais",
+            "rules": "required|min:2"
+        },
+        {
+            "field": "entidadFederativa",
+            "rules": "required|min:2"
+        },
+        {
+            "field": "ciudad",
+            "rules": "required|min:2"
+        },
+        {
+            "field": "codigoPostal",
+            "rules": "required|min:5"
+        }
+    ]
+
+}

@@ -1,0 +1,36 @@
+{"model_name":"Inventario",
+    "soft_deletes":"yes",
+    "pk":"id",
+    "localize":"yes",
+    "table":"inventarios",
+    "fields":[
+        {
+
+            "name": "nombre",
+            "type": "string"
+        },
+        {
+            "name": "descripcion",
+            "type": "text"
+
+        }
+    ],
+    
+   
+    "foreign_keys": [],
+    "relationships": [
+        {
+            "type": "hasMany",
+            "name": "producto",
+            "class": "App\\Models\\Producto"
+        }
+   ],
+    "validations": [
+        {
+            "field": "nombre",
+            "rules": "required|min:2"
+        }
+      
+    ]
+
+}

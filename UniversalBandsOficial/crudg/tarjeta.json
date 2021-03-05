@@ -1,0 +1,70 @@
+{"model_name":"Tarjeta",
+    "soft_deletes":"yes",
+    "pk":"id",
+    "localize":"yes",
+    "table":"tarjetas",
+    "fields":[
+        {
+
+            "name": "numeroTarjeta",
+            "type": "string"
+        },{
+
+            "name": "nombre",
+            "type": "string"
+        },{
+
+            "name": "expira",
+            "type": "date"
+        },{
+
+            "name": "cvv",
+            "type": "integer"
+        },{
+
+            "name": "monto",
+            "type": "float"
+        },{
+
+            "name": "metodoPago_id",
+            "type": "integer#unsigned"
+        }
+       
+    ],
+    
+   
+    "foreign_keys": [
+        {
+            "column": "metodoPago_id",
+            "references": "id",
+            "on": "metodo_Pagos",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "type": "hasOne",
+            "name": "metodoPago",
+            "class": "App\\Models\\MetodoPago"
+        }
+   ],
+    "validations": [
+        {
+            "field": "numeroTarjeta",
+            "rules": "required|min:16"
+        },
+        {
+            "field": "nombre",
+            "rules": "required|min:5"
+        },
+        {
+            "field": "expira",
+            "rules": "required"
+        },
+        {
+            "field": "cvv",
+            "rules": "required|min:3"
+        }
+    ]
+
+}

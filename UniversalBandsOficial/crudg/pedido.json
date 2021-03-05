@@ -1,0 +1,131 @@
+{"model_name":"Pedido",
+    "soft_deletes":"yes",
+    "pk":"id",
+    "localize":"yes",
+    "table":"pedidos",
+    "fields":[
+        {
+
+            "name": "nombreDestinatario",
+            "type": "string"
+        },
+        {
+
+            "name": "direccion",
+            "type": "string"
+        },
+        {
+
+            "name": "ciudad",
+            "type": "string"
+        },
+        {
+
+            "name": "entidadFederativa",
+            "type": "string"
+        },
+        {
+
+            "name": "pais",
+            "type": "string"
+        },
+        {
+            "name": "fechaPedido",
+            "type": "date"
+
+        },
+        {
+            "name": "fechaEnvio",
+            "type": "date"
+
+        },
+        {
+            "name":"cliente_id",
+            "type":"integer#unsigned"            
+
+        },
+        {
+            "name":"metodoPago_id",
+            "type":"integer#unsigned"            
+
+        },
+        {
+            "name":"envio_id",
+            "type":"integer#unsigned"            
+
+        }
+    ],
+    
+   
+    "foreign_keys": [
+        {
+            "column": "cliente_id",
+            "references": "id",
+            "on": "clientes",
+            "onDelete": "cascade"
+        },
+        {
+            "column": "metodoPago_id",
+            "references": "id",
+            "on": "metodo_Pagos",
+            "onDelete": "cascade"
+        },{
+            "column": "envio_id",
+            "references": "id",
+            "on": "envios",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "cliente",
+            "type": "belongsTo",
+            "class": "App\\Models\\Cliente"
+        },
+        {
+            "type": "belongsTo",
+            "name": "detallepedido",
+            "class": "App\\Models\\DetallePedido"
+        },{
+            "name": "envio",
+            "type": "hasOne",
+            "class": "App\\Models\\Envio"
+        },{
+            "name": "metodoPago",
+            "type": "hasOne",
+            "class": "App\\Models\\MetodoPago"
+        }
+   ],
+    "validations": [
+        {
+            "field": "nombreDestinatario",
+            "rules": "required|min:2"
+        },
+        {
+            "field": "direccion",
+            "rules": "required|min:2"
+        },
+        {
+            "field": "ciudad",
+            "rules": "required|min:2"
+        },
+        {
+            "field": "entidadFederativa",
+            "rules": "required|min:2"
+        },
+        {
+            "field": "pais",
+            "rules": "required|min:2"
+        },
+        {
+            "field": "fechaPedido",
+            "rules": "required|min:2"
+        },
+        {
+            "field": "fechaEnvio",
+            "rules": "required|min:2"
+        }
+      
+    ]
+
+}

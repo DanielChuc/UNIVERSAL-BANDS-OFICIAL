@@ -1,0 +1,93 @@
+{"model_name":"Producto",
+    "soft_deletes":"yes",
+    "pk":"id",
+    "localize":"yes",
+    "table":"productos",
+    "fields":[
+        {
+
+            "name": "nombre",
+            "type": "string"
+        },
+        {
+            "name": "descripcion",
+            "type": "text"
+
+        },
+        {
+
+            "name": "cantidad",
+            "type": "integer"
+        },
+        {
+            "name": "precio",
+            "type": "integer"
+
+        },
+        {
+            "name": "estado",
+            "type": "string"
+
+        },
+        {
+            "name":"categoriap_id",
+            "type":"integer#unsigned"            
+
+        },
+        {
+            "name":"proveedor_id",
+            "type":"integer#unsigned"            
+
+        }
+    ],
+    
+   
+    "foreign_keys": [
+        {
+            "column": "categoriap_id",
+            "references": "id",
+            "on": "categoriaps",
+            "onDelete": "cascade"
+        },
+        {
+            "column": "proveedor_id",
+            "references": "id",
+            "on": "proveedors",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "type": "belognsTo",
+            "name": "categoriap",
+            "class": "App\\Models\\Categoriap"
+        },
+        {
+            "type": "belongsTo",
+            "name": "proveedor",
+            "class": "App\\Models\\Proveedor"
+        },
+        {
+            "type": "belongsTo",
+            "name": "detallepedido",
+            "class": "App\\Models\\DetallePedido"
+        }
+        
+   ],
+    "validations": [
+        {
+            "field": "nombre",
+            "rules": "required|min:2"
+        },
+        {
+            "field": "descripcion",
+            "rules": "required|min:2"
+        },
+        {
+            "field": "estado",
+            "rules": "required|min:1"
+        }
+      
+    ]
+
+}

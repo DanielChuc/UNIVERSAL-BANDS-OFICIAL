@@ -1,0 +1,22 @@
+Para crear los seeders se utiliza:
+
+php artisan make:seeder ClienteSeeder
+
+Para crear Factory
+
+php artisan make:factory ClienteFactory
+
+Llamar al seeder de forma especifica:
+php artisan db:seed --class=ClienteSeeder
+//////////////////////////////////////////////
+php artisan make:factory BandsFactory --model=Banda
+php artisan make:factory MetodoPagoFactory --model=MetodoPago
+php artisan make:factory TarjetaFactory --model=Tarjeta
+php artisan make:factory EfectivoFactory --model=Efectivo
+php artisan make:factory EnvioFactory --model=Envio
+
+
+php artisan make:seeder MetodoPagoSeeder
+php artisan make:seeder TarjetaSeeder
+php artisan make:seeder EfectivoSeeder
+php artisan make:seeder BandaSeeder

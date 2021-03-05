@@ -1,0 +1,12 @@
+Al descargar el proyecto primero debes de crear la base de datos que se especifica en el .env
+
+Por si te da flojera buscarlo es: universalbands
+
+ejecutar el comando:
+
+php artisan storage:link
+
+Esto creara un enlace simbolico el cual servira para recibir y mostrar las imagenes
+
+
+

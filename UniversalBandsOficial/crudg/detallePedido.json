@@ -1,0 +1,76 @@
+{"model_name":"DetallePedido",
+    "soft_deletes":"yes",
+    "pk":"id",
+    "localize":"yes",
+    "table":"detallesPedidos",
+    "fields":[
+        {
+
+            "name": "estadoPedido",
+            "type": "string"
+        },
+        {
+            "name": "descripcion",
+            "type": "text"
+
+        },
+        {
+            "name": "cantidad",
+            "type": "integer"
+
+        },
+        {
+            "name": "fecha",
+            "type": "date"
+
+        },
+        {
+            "name":"producto_id",
+            "type":"integer#unsigned"            
+
+        },
+        {
+            "name":"pedido_id",
+            "type":"integer#unsigned"            
+
+        }
+        
+    ],
+    
+   
+    "foreign_keys": [
+        {
+            "column": "producto_id",
+            "references": "id",
+            "on": "productos",
+            "onDelete": "cascade"
+        },
+       
+        {
+            "column": "pedido_id",
+            "references": "id",
+            "on": "pedidos",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "type": "hasMany",
+            "name": "pedido",
+            "class": "App\\Models\\Pedido"
+        },
+        {
+            "type": "hasMany",
+            "name": "producto",
+            "class": "App\\Models\\Producto"
+        }
+   ],
+    "validations": [
+        {
+            "field": "nombre",
+            "rules": "required|min:2"
+        }
+      
+    ]
+
+}

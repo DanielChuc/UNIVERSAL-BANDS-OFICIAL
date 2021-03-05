@@ -1,0 +1,54 @@
+Roles y permisos:
+Primer paso descargar spatie laravel
+https://github.com/spatie/laravel-permission
+https://spatie.be/docs/laravel-permission/v3/installation-laravel
+
+
+1 Correr el primer comando el cual es:
+ composer require spatie/laravel-permission
+
+2 Agregar en providers ubicado en la carpeta config/app.php
+
+Spatie\Permission\PermissionServiceProvider::class,
+
+3 Correr este comando
+
+php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+
+Este comando genera las migraciones y el modelo de permiso
+
+4 Correr las migraciones
+
+ php artisan migrate
+
+Crear los permisos
+
+1 Crear un seeder
+
+php artisan make:seeder PermissionsSeeder
+
+2 crear los permisos basandose en esto:
+
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+
+$role = Role::create(['name' => 'writer']);
+$permission = Permission::create(['name' => 'edit articles']);
+
+
+Al estar en el archivo seeder que se creo se tiene que tener 
+use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+use Illuminate\Support\Facades\Hash;
+use App\User;
+
+en el archivo App\User.php debe de tener 
+use Spatie\Permission\Traits\HasRoles;
+use HasRoles;
+
+
+
+
+
+

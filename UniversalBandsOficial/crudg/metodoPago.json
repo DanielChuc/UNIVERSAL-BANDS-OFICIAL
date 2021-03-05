@@ -1,0 +1,41 @@
+{"model_name":"MetodoPago",
+    "soft_deletes":"yes",
+    "pk":"id",
+    "localize":"yes",
+    "table":"metodosPagos",
+    "fields":[
+        {
+            "name":"ejemplo",
+            "type":"string"            
+
+        }
+    ],
+    
+   
+    "foreign_keys": [],
+    "relationships": [
+        {
+            "type": "belongsTo",
+            "name": "tarjeta",
+            "class": "App\\Models\\Tarjeta"
+        },
+        {
+            "type": "belongsTo",
+            "name": "efectivo",
+            "class": "App\\Models\\Efectivo"
+        },
+        {
+            "type": "belongsTo",
+            "name": "pedido",
+            "class": "App\\Models\\Pedido"
+        },
+        {
+            "type": "belongsTo",
+            "name": "envio",
+            "class": "App\\Models\\Envio"
+        }
+   ],
+    "validations": [
+    ]
+
+}

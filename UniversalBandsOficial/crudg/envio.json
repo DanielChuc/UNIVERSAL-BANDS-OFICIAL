@@ -1,0 +1,84 @@
+{"model_name":"Envio",
+    "soft_deletes":"yes",
+    "pk":"id",
+    "localize":"yes",
+    "table":"envios",
+    "fields":[
+        {
+
+            "name": "cliente",
+            "type": "string"
+        },
+        {
+            "name": "direccion",
+            "type": "string"
+
+        },
+        {
+            "name": "pais",
+            "type": "string"
+
+        },
+        {
+            "name": "ciudad",
+            "type": "string"
+
+        },
+        {
+            "name": "codigoPostal",
+            "type": "string"
+
+        },{
+
+
+            "name": "metodoPago_id",
+            "type": "integer#unsigned"
+        }
+       
+    ],
+    
+   
+    "foreign_keys": [
+        {
+            "column": "metodoPago_id",
+            "references": "id",
+            "on": "metodo_Pagos",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "type": "hasOne",
+            "name": "metodoPago",
+            "class": "App\\Models\\MetodoPago"
+        },
+        {
+            "type": "belongsTo",
+            "name": "pedido",
+            "class": "App\\Models\\Pedido"
+        }
+   ],
+    "validations": [
+        {
+            "field": "cliente",
+            "rules": "required|min:5"
+        },
+        {
+            "field": "direccion",
+            "rules": "required|min:2"
+        },
+        {
+            "field": "pais",
+            "rules": "required|min:2"
+        },
+        {
+            "field": "ciudad",
+            "rules": "required|min:2"
+        },
+        {
+            "field": "codigoPostal",
+            "rules": "required|min:5"
+        }
+    ]
+
+}

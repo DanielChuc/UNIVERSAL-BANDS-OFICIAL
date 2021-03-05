@@ -1,0 +1,68 @@
+{"model_name":"Efectivo",
+    "soft_deletes":"yes",
+    "pk":"id",
+    "localize":"yes",
+    "table":"efectivos",
+    "fields":[
+        {
+
+            "name": "cliente",
+            "type": "string"
+        },{
+
+            "name": "tipoMoneda",
+            "type": "string"
+        },{
+
+            "name": "monto",
+            "type": "float"
+        },
+        {
+
+            "name": "cambio",
+            "type": "float"
+        },{
+
+
+            "name": "metodoPago_id",
+            "type": "integer#unsigned"
+        }
+       
+    ],
+    
+   
+    "foreign_keys": [
+        {
+            "column": "metodoPago_id",
+            "references": "id",
+            "on": "metodo_Pagos",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "type": "hasOne",
+            "name": "metodoPago",
+            "class": "App\\Models\\MetodoPago"
+        }
+   ],
+    "validations": [
+        {
+            "field": "cliente",
+            "rules": "required|min:5"
+        },
+        {
+            "field": "tipoMoneda",
+            "rules": "required"
+        },
+        {
+            "field": "monto",
+            "rules": "required"
+        },
+        {
+            "field": "cambio",
+            "rules": "required"
+        }
+    ]
+
+}

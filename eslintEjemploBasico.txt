@@ -1,0 +1,41 @@
+requisitos:
+tener instalado node
+tener intalado npm
+
+
+https://eslint.org/docs/user-guide/getting-started
+Instalar Eslint
+
+npm install eslint --save-dev
+
+crear un archivo 
+
+.eslintrc.json
+ y agregarle 
+----------------------------------------------------------------------------------------
+{
+    "parserOptions":{
+        "ecmaVersion":6
+    },
+    "rules":{
+        "semi":["error","always"]
+    }
+}
+-----------------------------------------------------------------------------------------
+navegar a tu ruta en donde esta tu proyecto o archivo js
+
+
+ejecutar el comando
+
+npx eslint (carpeta/archivo.js)
+ejemplo
+npx eslint js/app.js
+
+Muestra los errores 
+
+para reparar automaticamente se utiliza
+
+npx eslint js/app.js --fix
+
+
+
